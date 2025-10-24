@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 60px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+            animation: fadeInDown 0.8s ease;
+            text-align: center;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px 60px;
+            border-radius: 25px;
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+            transform: perspective(1000px) rotateX(2deg);
+            animation: fadeInUp 1s ease;
+            min-width: 400px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: perspective(1000px) rotateX(10deg) translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: perspective(1000px) rotateX(2deg) translateY(0);
+            }
+        }
+
+        input {
+            width: 100%;
+            padding: 18px 20px;
+            border: 2px solid transparent;
+            border-radius: 15px;
+            font-size: 1.1em;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            box-shadow:
+                0 8px 16px rgba(0, 0, 0, 0.1) inset,
+                0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            color: #333;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #888;
+        }
+
+        input:focus {
+            background: #fff;
+            border: 2px solid #00f2fe;
+            box-shadow:
+                0 0 0 4px rgba(0, 242, 254, 0.2),
+                0 8px 20px rgba(0, 242, 254, 0.3);
+            transform: translateY(-2px);
+        }
+
+        input:hover {
+            background: #fff;
+            transform: translateY(-1px);
+        }
+
+        button {
+            width: 100%;
+            padding: 18px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            cursor: pointer;
+            box-shadow:
+                0 10px 25px rgba(79, 172, 254, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        button:hover::before {
+            left: 100%;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 15px 35px rgba(79, 172, 254, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+        }
+
+        button:active {
+            transform: translateY(-1px);
+            box-shadow:
+                0 8px 20px rgba(79, 172, 254, 0.4);
+        }
+
+        br {
+            display: block;
+            content: "";
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            form {
+                min-width: auto;
+                width: 90%;
+                padding: 40px 30px;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            input,
+            button {
+                font-size: 1em;
+                padding: 15px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Add Course</h2>
+    <form method="POST">
+        <input name="course_name" placeholder="Course Name" required><br><br>
+        <input name="duration" placeholder="Duration (e.g. 6 months)" required><br><br>
+        <button type="submit">Save</button>
+    </form>
+</body>
+
+</html>

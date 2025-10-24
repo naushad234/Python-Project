@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 60px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 3em;
+            margin-bottom: 50px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+            animation: fadeInDown 0.8s ease;
+            text-align: center;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        a {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            padding: 22px 40px;
+            margin-bottom: 20px;
+            text-decoration: none;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+            transform: perspective(1000px) rotateX(2deg);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease backwards;
+        }
+
+        a:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        a:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        a:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        a:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: perspective(1000px) rotateX(10deg) translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: perspective(1000px) rotateX(2deg) translateY(0);
+            }
+        }
+
+        a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        a:hover::before {
+            left: 100%;
+        }
+
+        a::after {
+            content: '→';
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        a:hover::after {
+            opacity: 1;
+            right: 20px;
+        }
+
+        a:hover {
+            transform: perspective(1000px) rotateX(0deg) translateY(-5px) scale(1.03);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+        }
+
+        a:active {
+            transform: perspective(1000px) rotateX(0deg) translateY(-2px) scale(1.01);
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        br {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2.2em;
+                margin-bottom: 40px;
+            }
+
+            a {
+                max-width: 90%;
+                font-size: 1.1em;
+                padding: 18px 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Course Enrollment System</h2>
+    <a href="/add_student">Add Student</a><br>
+    <a href="/add_course">Add Course</a><br>
+    <a href="/enroll">Enroll Student</a><br>
+    <a href="/view_enrollments">View Enrollments</a>
+</body>
+
+</html>
